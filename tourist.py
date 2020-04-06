@@ -1,20 +1,26 @@
 destinations = ["Paris, France", "Shanghai, China", "Los Angeles, USA", "São Paulo, Brazil", "Cairo, Egypt"]
 test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
+
+
 def get_destination_index(destination):
-  destination_index = destinations.index(destination)
-  return destination_index
+    destination_index = destinations.index(destination)
+    return destination_index
+
 
 def get_traveler_location(traveler):
-  traveler_destination = traveler[1]
-  traveler_destination_index = get_destination_index(traveler_destination)
-  return traveler_destination_index
-test_destination_index = get_traveler_location(test_traveler)
+    traveler_destination = traveler[1]
+    traveler_destination_index = get_destination_index(traveler_destination)
+    return traveler_destination_index
+
+
+test_destination_index = get_traveler_location(test_traveler)#testing the function
 print(test_destination_index)
 
-attractions = []
-for destination in destinations:
-  attractions.append([])
+attractions = []#empty list defined
+for destination in destinations:#iterating and printing the attractions by appending to the empty list
+    attractions.append([])
 print(attractions)
+
 
 def add_attraction(destination, attraction):
     try:
@@ -23,17 +29,7 @@ def add_attraction(destination, attraction):
     except ValueError:
         return
 
-add_attraction("Los Angeles, USA", ['Venice Beach', ['beach']])
-print(attractions)
-
-def add_attraction(destination, attraction):
-    try:
-        destination_index = get_destination_index(destination)
-        attractions_for_destination = attractions[destination_index].append(attraction)
-    except ValueError:
-        return
-
-
+#addind some destinations...
 add_attraction("Los Angeles, USA", ['Venice Beach', ['beach']])
 add_attraction("Paris, France", ["the Louvre", ["art", "museum"]])
 add_attraction("Paris, France", ["Arc de Triomphe", ["historical site", "monument"]])
@@ -51,11 +47,11 @@ def find_attractions(destination, interests):
     destination_index = get_destination_index(destination)
     attractions_in_city = attractions[destination_index]
     attractions_with_interest = []
-    for attractions in attractions_in_city:
+    for attractions in attractions_in_city: #iterating through all the attractions
         possible_attraction = attraction
         attraction_tags = attraction[1]
 
-        for interest in interests:
+        for interest in interests: #iterating through the interest of tourist in the attraction and appending the interested attractions in an empty list
             if interest in attraction_tags:
                 attractions_with_interest.append(possible_attraction)
 
