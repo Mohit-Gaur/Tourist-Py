@@ -47,7 +47,7 @@ def find_attractions(destination, interests):
     destination_index = get_destination_index(destination)
     attractions_in_city = attractions[destination_index]
     attractions_with_interest = []
-    for attractions in attractions_in_city: #iterating through all the attractions
+    for attraction in attractions_in_city: #iterating through all the attractions
         possible_attraction = attraction
         attraction_tags = attraction[1]
 
@@ -66,9 +66,9 @@ def get_attractions_for_traveler(traveler):
 
     for i in range(len(traveler_attractions)):
         if traveler_attractions[-1] == traveler_attractions[i]:
-            interests_string += "the " + traveler_attractions[i] + "."
+            interests_string += "the " + str(traveler_attractions[i]) + "."
         else:
-            interests_string += "the " + traveler_attractions[i] + ", "
+            interests_string += "the " + str(traveler_attractions[i]) + ", "
     return interests_string
 
 
